@@ -3,6 +3,8 @@
 .AppleDouble
 .LSOverride
 *.ppt
+*.pdf
+*.png
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
@@ -142,3 +144,10 @@ dmypy.json
 
 # Cython debug symbols
 cython_debug/
+GAN/
+GANs and filters/
+OpenGl/
+helloworld/
+stylegan/
+StyleTransfer/
+Advanced TF/
