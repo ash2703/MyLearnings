@@ -13,7 +13,7 @@ class Person {
     getBirthDay = () => this.dob.getDay() // here 'this' has the context of scope
     // this will be added to prototype
     getFullName() {
-        return `${this.firstName} ${this.lastName}` //will not work this will not have reference to names    
+        return `${this.firstName} ${this.lastName}`    
     }
 }
 
