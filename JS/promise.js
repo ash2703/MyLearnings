@@ -19,13 +19,13 @@ function createPost(post, callback){
             console.log("createPost started")
             posts.push(post)
 
-            error = false // dummy error check
+            let error = false // dummy error check
             if(!error){
                 // go ahead and resolve the promise if no error
-                resolve('hale looya')
+                return resolve('hale looya')
             } else{
                 // else throw error
-                reject("ERROR: Some unwanted error occured")
+                return reject("ERROR: Some unwanted error occured")
             }
             // callback()  // No need of a callback when using promise
         }, 5000)
@@ -72,8 +72,8 @@ async function init(){
     // await is blocking only within the async function
     // calls outside the function will not be blocked
 
-    await createPost({title: 'Post three', body: 'this is my second hot body'})
-    console.log("within init end executed at step: ", step) // blocked until above function returns
+    let error = await createPost({title: 'Post three', body: 'this is my second hot body'})
+    console.log("within init end executed at step: ", step, error) // blocked until above function returns
     step++
     getPosts()
 }
