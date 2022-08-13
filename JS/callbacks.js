@@ -29,3 +29,15 @@ function createPost(post, callback){
 
 createPost({title: 'Post three', body: 'this is my second hot body'}, getPosts)
 // getPosts() // Not needed if we are using a callback
+
+console.log("start")
+// basically this will be offloaded to the kernel by even loop and will be executed when theres time
+setTimeout(()=>{
+    console.log("middle task")  // will be executed when no other immediate code is required to be run
+}, 0)
+// these console logs are immediate codes that need to be run, hence middle task will be printed at the end 
+// even though it takes 0 seconds
+console.log("1")
+console.log("2")
+console.log("3")
+console.log("4")
