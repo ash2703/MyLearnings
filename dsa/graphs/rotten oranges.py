@@ -31,6 +31,7 @@ Explanation: Since there are already no fresh oranges at minute 0, the answer is
 from collections import deque
 from typing import List
 
+
 class Solution:
     def orangesRotting(self, grid: List[List[int]]) -> int:
         order = deque()
@@ -51,10 +52,10 @@ class Solution:
         while order:
             # print(visited)
             r, c, t = order.popleft()
-            top = r-1, c
-            bottom = r+1, c
-            left = r, c-1
-            right = r, c+1
+            top = r - 1, c
+            bottom = r + 1, c
+            left = r, c - 1
+            right = r, c + 1
             for x, y in [top, bottom, left, right]:
                 if x < 0 or y < 0 or x > row or y > col:
                     continue
@@ -62,15 +63,14 @@ class Solution:
                     tot_unaffected -= 1
                     # print("adding in queue: ", x, y, "time = ", t+1)
                     visited[x][y] = 2
-                    order.append((x, y, t+1))
+                    order.append((x, y, t + 1))
             # max_time = max(t, max_time)
-        if tot_unaffected != 0: return -1
+        if tot_unaffected != 0:
+            return -1
         return t
+
 
 if __name__ == "__main__":
     sol = Solution()
-    time_taken = sol.orangesRotting( [[2,1,1],[1,1,0],[0,1,1]])
+    time_taken = sol.orangesRotting([[2, 1, 1], [1, 1, 0], [0, 1, 1]])
     print(time_taken)
-                
-                    
-

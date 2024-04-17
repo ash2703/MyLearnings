@@ -15,6 +15,7 @@ So, the adjacency list of the graph is stated below.
 
 from typing import List, Tuple
 
+
 def printAdjacency(n: int, m: int, edges: List[Tuple[int, int]]) -> List[List[int]]:
     adjList = [[i] for i in range(n)]
     for a, b in edges:

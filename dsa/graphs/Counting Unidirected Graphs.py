@@ -11,6 +11,7 @@ These are the possible 2 graphs
 
 from typing import *
 
+
 def countingGraphs(N: int) -> int:
     """
     There are NC2 ways to select 2 nodes from N nodes.
@@ -18,10 +19,11 @@ def countingGraphs(N: int) -> int:
     For each pair of nodes, there can be 2 possible edges between them.
     So, the total number of ways to form an undirected graph is 2^(N*(N-1)/2).
     """
-    # Write your code here 
-    node_selection = N* (N - 1) // 2
+    # Write your code here
+    node_selection = N * (N - 1) // 2
 
-    return 2** node_selection
+    return 2**node_selection
+
 
 def countingDirectedGraphs(N: int) -> int:
     """
@@ -35,5 +37,5 @@ def countingDirectedGraphs(N: int) -> int:
     So, the total number of ways to form an directed graph is 4^(N*(N-1)/2).
     """
 
-    node_selection = N* (N - 1) // 2
-    return 4** node_selection
+    node_selection = N * (N - 1) // 2
+    return 4**node_selection

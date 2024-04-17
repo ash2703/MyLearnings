@@ -18,10 +18,12 @@ n = 4, roads = [ [1, 1, 1, 0],
 
 from typing import List
 
+
 def findNumOfProvinces(roads: List[List[int]], n: int) -> int:
     visited = [False] * n
     cities = 0
     dfs = []
+
     def traverse(node):
         visited[node] = True
         for connections, connected in enumerate(roads[node]):
@@ -32,21 +34,16 @@ def findNumOfProvinces(roads: List[List[int]], n: int) -> int:
                     traverse(connections)
 
     for node in range(len(visited)):
-        if not visited[node]: 
+        if not visited[node]:
             cities += 1
             dfs.append(node)
             traverse(node)
-    
+
     return cities, dfs
 
 
 if __name__ == "__main__":
     cities, dfs = findNumOfProvinces(
-        [ 
-             [1, 1, 0, 0],
-             [1, 1, 0, 0],
-             [0, 0, 1, 1],
-             [0, 0, 1, 1] 
-        ], 4
+        [[1, 1, 0, 0], [1, 1, 0, 0], [0, 0, 1, 1], [0, 0, 1, 1]], 4
     )
     print(cities, dfs)
