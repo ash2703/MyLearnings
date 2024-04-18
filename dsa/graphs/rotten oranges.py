@@ -36,10 +36,12 @@ class Solution:
     def orangesRotting(self, grid: List[List[int]]) -> int:
         order = deque()
         tot_unaffected = 0
-        row, col = len(grid[0]), len(grid)
-        visited = [[-1] * row for _ in range(col)]
-        for row in range(len(grid)):
-            for col in range(len(grid[row])):
+        rows, cols = len(grid), len(
+            grid[0]
+        )  # row is how many vertical lists https://1001programming.com/wp-content/uploads/2022/11/row-vs-column-1024x576.png
+        visited = [[-1] * cols for _ in range(rows)]
+        for row in range(rows):
+            for col in range(cols):
                 if grid[row][col] == 2:
                     order.append((row, col, 0))
                     visited[row][col] = 2
@@ -57,7 +59,7 @@ class Solution:
             left = r, c - 1
             right = r, c + 1
             for x, y in [top, bottom, left, right]:
-                if x < 0 or y < 0 or x > row or y > col:
+                if x < 0 or y < 0 or x >= rows or y >= cols:
                     continue
                 if visited[x][y] == 1:
                     tot_unaffected -= 1
