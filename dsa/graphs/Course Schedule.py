@@ -31,7 +31,9 @@ class Solution:
 
         # print(adjList)
         visited = [False] * numCourses
-        traversed = [False] * numCourses  # To keep track of nodes that are being traversed
+        traversed = [
+            False
+        ] * numCourses  # To keep track of nodes that are being traversed
 
         def dfs(node):
             # print(node)
